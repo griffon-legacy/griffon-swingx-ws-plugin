@@ -1,5 +1,5 @@
 /*
- * Copyright 2009-2010 the original author or authors.
+ * Copyright 2009-2013 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,14 +19,13 @@ package griffon.builder.swingx.factory
 import griffon.builder.swingx.WaypointUtils
 import org.jdesktop.swingx.JXMapKit
 import org.jdesktop.swingx.JXMapViewer
-import org.jdesktop.swingx.mapviewer.GeoPosition
 import org.jdesktop.swingx.mapviewer.Waypoint
 
 /**
  * @author Andres Almiray
  */
 class WaypointFactory extends AbstractFactory {
-    public Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes)
+    Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes)
             throws InstantiationException, IllegalAccessException {
         if(FactoryBuilderSupport.checkValueIsTypeNotString(value, name, Waypoint)) {
             return value
@@ -37,7 +36,7 @@ class WaypointFactory extends AbstractFactory {
         new Waypoint(latitude, longitude)
     }
 
-    public void setParent(FactoryBuilderSupport builder, Object parent, Object child) {
+    void setParent(FactoryBuilderSupport builder, Object parent, Object child) {
         if(parent instanceof JXMapKit) parent = parent.getMainMap()
         if(parent instanceof JXMapViewer) {
             def override = builder.parentContext?.override

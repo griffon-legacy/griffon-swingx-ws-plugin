@@ -1,5 +1,5 @@
 /*
- * Copyright 2009-2010 the original author or authors.
+ * Copyright 2009-2013 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ import griffon.builder.swingx.factory.TileFactoryInfoFactory
  * @author Andres Almiray
  */
 class SwingxWsGriffonAddon {
-    def factories = [
+    Map factories = [
         jxmapKit: new JXMapKitFactory(),
         jxmapViewer: new JXMapViewerFactory(),
         htmlForm: new JXHtmlFormFactory(),
@@ -43,7 +43,7 @@ class SwingxWsGriffonAddon {
         tileFactoryInfo: new TileFactoryInfoFactory()
     ]
 
-    def methods = [
+    Map methods = [
         findWaypointPainter: { target -> WaypointUtils.findWaypointPainter(target, false) }
     ]
 }

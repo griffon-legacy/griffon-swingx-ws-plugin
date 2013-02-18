@@ -1,5 +1,5 @@
 /*
- * Copyright 2009-2010 the original author or authors.
+ * Copyright 2009-2013 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,11 +22,12 @@ import org.jdesktop.swingx.mapviewer.TileFactoryInfo
  * @author Andres Almiray
  */
 class TileFactoryInfoFactory extends AbstractFactory {
-    public static final KEYS = [
+    static final KEYS = [
         ['minimumZoomLevel', 'maximumZoomLevel', 'totalMapZoom', 'tileSize'], 
         ['xr2l', 'yt2b'], 
         ['baseURL', 'xparam', 'yparam', 'zparam']
     ]
+
     private static final DEFAULTS = [
         minimumZoomLevel: 1, 
         maximumZoomLevel: 15, 
@@ -37,7 +38,7 @@ class TileFactoryInfoFactory extends AbstractFactory {
         zparam: 'z', 
     ]
 
-    public Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes)
+    Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes)
             throws InstantiationException, IllegalAccessException {
         if(FactoryBuilderSupport.checkValueIsTypeNotString(value, name, TileFactoryInfo)) {
             return value

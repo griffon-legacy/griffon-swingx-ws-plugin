@@ -1,5 +1,5 @@
 /*
- * Copyright 2009-2010 the original author or authors.
+ * Copyright 2009-2013 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,8 +17,8 @@
 package griffon.builder.swingx.factory
 
 import groovy.swing.factory.ComponentFactory
-import org.jdesktop.swingx.JXHtmlForm
 import org.jdesktop.http.Method
+import org.jdesktop.swingx.JXHtmlForm
 
 /**
  * @author Andres Almiray
@@ -28,7 +28,7 @@ class JXHtmlFormFactory extends ComponentFactory {
         super(JXHtmlForm)
     }
 
-    public boolean onHandleNodeAttributes(FactoryBuilderSupport builder, Object node, Map attributes) {
+    boolean onHandleNodeAttributes(FactoryBuilderSupport builder, Object node, Map attributes) {
         if(attributes.containsKey('method')) {
             def method = attributes.remove('method')
             if(!(method instanceof Method)) {
